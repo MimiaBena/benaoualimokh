@@ -14,12 +14,11 @@ $(function(){
      $('.commentaire').empty();
      var postdata = $('#contact-form').serialize();
      
-      $.ajax({
+      /*$.ajax({
           type: 'POST',
-          url: 'php/contact.php',
-          dataType : "json",
+          url: 'contact.php',
           data: postdata,
-          
+          dataType: 'json',
           success: function(result){
               
               if(result.isSuccess){
@@ -38,7 +37,7 @@ $(function(){
           
           
           
-      });
+      });*/
      
      
  });

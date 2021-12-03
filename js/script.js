@@ -18,7 +18,7 @@ $(function(){
           type: 'POST',
           url: '/php/contact.php',
           data: postdata,
-          dataType: 'json',
+          
           success: function(result){
               
               if(result.isSuccess){

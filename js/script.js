@@ -1,25 +1,21 @@
-$(function(){
+ var ssContactForm = function() {
 
-    $(".navbar a, footer a").on("click", function(event){
-    
-        event.preventDefault();
-        var hash = this.hash;
-        
-        $('body,html').animate({scrollTop: $(hash).offset().top} , 900 , function(){window.location.hash = hash;})
-        
-    });
-    
-    $('#contact-form').submit(function(e){
-     e.preventDefault();
-     $('.commentaire').empty();
-     var postdata = $('#contact-form').serialize();
-     
-      /*$.ajax({
-          type: 'POST',
-          url: 'contact.php',
-          data: postdata,
-          dataType: 'json',
-          success: function(result){
+        /* local validation */
+	    $('#contact-form').validate({
+
+            /* submit via ajax */
+            submitHandler: function(form) {
+
+                //var sLoader = $('.submit-loader');
+
+                $.ajax({
+
+                    type: "POST",
+                    url: 'contact.php',
+                    //data: postdata,
+                    dataType: 'json',
+                    data: $(form).serialize(),
+                    success: function(result){
               
               if(result.isSuccess){
                   $("#contact-form").append("<p class='thank-you'>Votre message a bien été envoyé.Merci de m'avoir contacté :)</p>");
@@ -33,14 +29,14 @@ $(function(){
                   $("#phone + .commentaire").html(result.phoneError);
                   $("#message + .commentaire").html(result.messageError);
               }
-          }
-          
-          
-          
-      });*/
-     
-     
- });
-    
+          } ,
+                   
 
-})
+                });
+            }
+
+        });
+    };
+
+
+ssContactForm();

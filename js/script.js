@@ -11,7 +11,7 @@
                 $.ajax({
 
                     type: "POST",
-                    url: 'contact.php',
+                    url: 'php/contact.php',
                     //data: postdata,
                     dataType: 'json',
                     data: $(form).serialize(),

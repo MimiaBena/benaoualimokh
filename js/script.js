@@ -16,7 +16,7 @@ $(function(){
      
       $.ajax({
           type: 'POST',
-          url: 'https://github.com/MimiaBena/benaoualimokh/blob/688334d62b8eb49ffb8ecb4ee118173d824257e4/php/contact.php',
+          url: '/php/contact.php',
           data: postdata,
           dataType: 'json',
           success: function(result){
